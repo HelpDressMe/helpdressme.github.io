@@ -1,4 +1,4 @@
-console.log("rhiya is here");
+console.log("I am ERROR!");
 
 $(document).ready(function(){
 	$.ajax({
@@ -38,6 +38,19 @@ $(document).ready(function(){
       file = files[0];
     });
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
     $('#uploadbutton').click(function() {
       var serverUrl = 'https://api.parse.com/1/files/' + file.name;
@@ -71,3 +84,4 @@ $(document).ready(function(){
 
 
   });
+  
