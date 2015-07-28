@@ -1,0 +1,54 @@
+h3{
+  color: #FF0000;
+  font-family: sans-serif;
+  font-size = 2em;
+
+}
+p{
+  color: #FF0000;
+  font-family: sans-serif;
+  font-size = 1em;
+  }
+
+  form{
+  font-family: sans-serif; 
+ }
+  
+  
+.weather_Drizzle .main {
+	background-color: grey;
+}
+.weather_Rain .main {
+	background-color: black;
+}
+.weather_Snow .main {
+	background-color: white;
+}
+.weather_Atmosphere .main {
+	background-color: orange;
+}
+.weather_Extreme .main {
+	background-color: red;
+}
+.weather_Thunderstorm .main {
+	background-color: #9900ff;
+}
+.weather_Clouds .main {
+	background-color: #ccc;
+}
+.weather_Clear .main {
+	background-color: blue;
+}
+.weather-debug {
+	font-size: 80%;
+	margin-top: 3em;
+	border: solid 1px #ccc;
+}	
+body {	
+	margin: 0;
+	padding: 0;
+}
+.main {
+	padding: 1em;
+	height: 90%;
+}

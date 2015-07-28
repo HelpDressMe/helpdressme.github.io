@@ -1,17 +1,130 @@
+<html>
+<head>
+<title> poop </title>
+</head>
+
+
+
+
+<body>
+  <div class='main'>
+   The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>&#176;C. You should wear:
+    <div class='weather-debug'></div>
+  </div>
+</body>
+
+<script src="https://www.parse.com/downloads/javascript/parse/latest/js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+// api described at http://openweathermap.org/api
+// code by Chris Gutteridge and placed in the public domain. Free for reuse.
+$(document).ready(function(){
+	$.ajax({
+    		url: "http://api.openweathermap.org/data/2.5/weather",
+
+    		jsonp: "callback",
+    		dataType: "jsonp",
+ 		
+    		data: {
+			q: "Eastleigh",
+        		mode: "jsonp"
+    		},
+ 		
+    		// Work with the response
+    		success: function( response ) {
+			$('body').addClass( 'weather_'+response.weather[0].main );
+			$('.weather-text').text(response.weather[0].description );
+			$('.weather-temp').text(Math.round(response.main.temp-273.16) );
+		//	$('.weather-debug').text( JSON.stringify( response ) );
+    		}
+	});
+
+});
+</script>
+
+
+
+<form id="Bodypart"> 
+<input type="radio" name="Body part" value="Head" checked>Head
+<br>
+<input type="radio" name="Body part" value="Torso">Torso
+<br>
+<input type="radio" name="Body part" value="Legs">Legs
+<br>
+<input type="radio" name="Body part" value="Feet">Feet
+</form>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
+  <fieldset>
+    <input type="file" name="fileselect" id="fileselect"></input>
+    <input id="uploadbutton" type="button" value="Upload to Parse"/>
+  </fieldset>
+</form>
+
+<script type="text/javascript">
+  
+  var appid ="oM6g5QU41NKGl2PGlqxhQxV51WEYqPkj2EkuDXdJ"  ;
+  var apikey ="ma2Lgv3C4DjDUgNOv12ghmd82Ou60ZQpGsr3ubPx";
+  var javakey ="CLw7NNxumkyJBvOJ2h2LJFJyq4nZZb8FnV8RFAIt"
+  $(function() {
+    var file;
+	Parse.initialize(appid, javakey);
+	var Clothing = Parse.Object.extend("Clothing");
+    // Set an event listener on the Choose File field.
+    $('#fileselect').bind("change", function(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      // Our file var now holds the selected file
+      file = files[0];
+    });
+
+    // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
+    $('#uploadbutton').click(function() {
+      var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+     var form = document.getElementById("Bodypart");
+	   var Itemcloth = (form.elements["Body part"].value);
+      $.ajax({
+        type: "POST",
+        beforeSend: function(request) {
+          request.setRequestHeader("X-Parse-Application-Id", appid);
+          request.setRequestHeader("X-Parse-REST-API-Key", apikey);
+          request.setRequestHeader("Content-Type", file.type);
+        },
+        url: serverUrl,
+        data: file,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          alert("File available at: " + data.url);
+		  console.log("File available at: " + data.url);
+		  var clothing = new Clothing();
+		  clothing.set("type", Itemcloth)
+		  clothing.set("picture", data.url)
+		  clothing.save();
+        },
+        error: function(data) {
+          var obj = jQuery.parseJSON(data);
+          alert(obj.error);
+        }
+      });
+    });
+
+
+  });
+</script>
+
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="jquery.cycle2.js"></script>
-<style>
-body {
-	background-image: url('rain1.jpg');
-	background-size: cover;
-}
-.slider { 
-	margin-bottom:10px;
-}
-.slider div div div { width: 500px; text-align:center}
-</style>
-<div style='width: 600px; margin:auto'><!-- first div to center everything -->
 
+<div style='width: 600px; margin:auto'><!-- first div to center everything -->
+<center>
 <div id="slideshow-1" class='slider'>
     <div style="width: 600px;">
       <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&lt;</span></a>
@@ -22,20 +135,13 @@ body {
           data-cycle-next="#slideshow-1 .cycle-next"
           data-cycle-fx="scrollHorz"
           >
-          <div><img src="http://malsup.github.io/images/beach1.jpg" width=250 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach2.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach3.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach4.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach5.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach6.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach7.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach8.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach9.jpg" width=500 height=100></div>
+		  <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\BACKGROUNDFACE2.png" width=100 height=200></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\BACKGROUNDFACE.png" width=100 height=200></div>
       </div>
       <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
     </div>
 </div>
-
+</center>
 <div id="slideshow-2" class='slider'>
     <div style="width: 600px;">
       <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&lt;</span></a>
@@ -46,20 +152,14 @@ body {
           data-cycle-next="#slideshow-2 .cycle-next"
           data-cycle-fx="scrollHorz"
           >
-          <div><img src="http://malsup.github.io/images/beach1.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach2.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach3.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach4.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach5.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach6.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach7.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach8.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach9.jpg" width=500 height=200></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture1.png" width=500 height=200></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture2.png" width=500 height=200></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture3.png" width=500 height=200></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture4.png" width=500 height=200></div>
       </div>
       <a class="cycle-next" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&gt;</span></a>
     </div>
 </div>
-
 
 <div id="slideshow-3" class='slider'>
     <div style="width: 600px;">
@@ -71,15 +171,11 @@ body {
           data-cycle-next="#slideshow-3 .cycle-next"
           data-cycle-fx="scrollHorz"
           >
-          <div><img src="http://malsup.github.io/images/beach1.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach2.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach3.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach4.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach5.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach6.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach7.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach8.jpg" width=500 height=200></div>
-          <div><img src="http://malsup.github.io/images/beach9.jpg" width=500 height=200></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture111.png"></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture222.png"></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture333.png"></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture444.png"></div>
+
       </div>
       <a class="cycle-next" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&gt;</span></a>
     </div>
@@ -96,15 +192,10 @@ body {
           data-cycle-next="#slideshow-4 .cycle-next"
           data-cycle-fx="scrollHorz"
           >
-          <div><img src="http://malsup.github.io/images/beach1.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach2.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach3.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach4.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach5.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach6.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach7.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach8.jpg" width=500 height=100></div>
-          <div><img src="http://malsup.github.io/images/beach9.jpg" width=500 height=100></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture11.png" width=500 height=150></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture22.png" width=500 height=150></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture33.png" width=500 height=150></div>
+          <div><img src="C:\Users\Michael\Desktop\HELPDRESSME\images\picture44.png" width=500 height=150></div>
       </div>
       <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
     </div>
