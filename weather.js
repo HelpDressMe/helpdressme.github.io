@@ -50,9 +50,9 @@ function myFunction() {
   document.getElementById("loc_temp").innerHTML = current_location;
 }
 
-function currentLocation() {
-  console.log(this);
-  //event.preventDefault();
+function currentLocation(evt) {
+  console.log(evt);
+  evt.preventDefault();
   if (navigator.geolocation) {
     console.log("geolocation supported");
     navigator.geolocation.getCurrentPosition(success, error);
