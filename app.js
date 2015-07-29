@@ -23,7 +23,54 @@ $(document).ready(function(){
 
 });
 
+function myFunction() {
+    current_location = document.getElementById("location_input").value;
+    console.log(current_location);
 
+	$.ajax({
+    		url: "http://api.openweathermap.org/data/2.5/weather",
+
+    		jsonp: "callback",
+    		dataType: "jsonp",
+ 		
+    		data: {
+			q: current_location,
+			// lat: 50.9, long: -1.4,
+			//zip: "UK",
+			//zip: "UK",
+        		mode: "jsonp"
+    		},
+ 		
+    		// Work with the response
+    		success: function( response ) {
+			$('body').addClass( 'weather_'+response.weather[0].main );
+			$('.weather-text').text(response.weather[0].description );
+			$('.weather-temp').text(Math.round(response.main.temp-273.16) );
+		//	$('.weather-debug').text( JSON.stringify( response ) );
+
+clothes = 'something';
+temperature= (Math.round(response.main.temp-273.16));
+if (temperature >20) {
+clothes= 't-shirt';
+} else if (temperature <20 && temperature >1){
+clothes= 'jumper';
+} else if (temperature <-20 && temperature >-30){
+clothes= 'body bag';
+} else {
+clothes= 'body bag';
+}
+$('.weather-clothes').text(clothes);
+
+
+   }
+	});
+
+
+    document.getElementById("loc_temp").innerHTML = current_location;
+
+
+
+}
  var appid ="oM6g5QU41NKGl2PGlqxhQxV51WEYqPkj2EkuDXdJ"  ;
   var apikey ="ma2Lgv3C4DjDUgNOv12ghmd82Ou60ZQpGsr3ubPx";
   var javakey ="CLw7NNxumkyJBvOJ2h2LJFJyq4nZZb8FnV8RFAIt"
