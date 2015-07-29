@@ -1,147 +1,116 @@
 <html>
-<head>
-<title> Helpdress.me </title>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <head>
+    <title> Helpdress.me </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://www.parse.com/downloads/javascript/parse/latest/js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script src="jquery.cycle2.js"></script>
+  </head>
+  <body>
+    <div class="main">
+    <form>
+	     Location:
+       <input type="text" name="location" value="London" maxlength="100" id="location_input" />
+       <button onclick="currentLocation()">Current Location</button>
+     </form>
 
-
-
-
-<body>
-  <div class='main'>
-	Location:
-<input type="text" name="location" value="London" maxlength="100" id="location_input" /> 
-<button onclick="currentLocation()">Current Location</button>
-</form>
-
-    The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>&#176;C. 
+    The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>&#176;C.
     you should wear a  <span class='weather-clothes'>??</span>
     <div class='weather-debug'></div>
 
     <button onclick="myFunction()">Do a thing!</button>
     <p id="loc_temp">Location temperature</p>
-  
-</body>
 
-<script src="https://www.parse.com/downloads/javascript/parse/latest/js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="app.js"></script>
-<script src="jquery.cycle2.js"></script>
+    <form id="Bodypart">
+      What type of clothing is this? <input type="text" name="Clothingtype"><br>
+      What weather would you wear this in? <select name="weatherType"> <option value="sunny">Sunny/Hot</option> <option value="cloudy">Cloudy/Cold</option> <option value="rain">Raining/Wet</option> </select> <br>
+      What type of event would you wear this to? <select name="eventClassification"> <option value="casual">Casual</option> <option value="formal">Formal</option> <option value="fancy">Fancy</option> <option value="family">Family</option> <option value="wedding">Wedding</option> <option value="celebrations">Celebrations/Parties</option> <option value="date">Date</option> <option value="school">School</option> </select> <br>
+      <input type="radio" name="Body part" value="Head" checked>Head <br>
+      <input type="radio" name="Body part" value="Torso">Torso <br>
+      <input type="radio" name="Body part" value="Legs">Legs <br>
+      <input type="radio" name="Body part" value="Feet">Feet
+    </form>
 
-
-
-<form id="Bodypart"> 
-What type of clothing is this? <input type="text" name="Clothingtype">
-<br>
-What weather would you wear this in? <select name="weatherType"> <option value="sunny">Sunny/Hot</option> <option value="cloudy">Cloudy/Cold</option> <option value="rain">Raining/Wet</option> </select>
-<br>
-What type of event would you wear this to? <select name="eventClassification"> <option value="casual">Casual</option> <option value="formal">Formal</option> <option value="fancy">Fancy</option> <option value="family">Family</option> <option value="wedding">Wedding</option> <option value="celebrations">Celebrations/Parties</option> <option value="date">Date</option> <option value="school">School</option> </select>
-<br>
-<input type="radio" name="Body part" value="Head" checked>Head
-<br>
-<input type="radio" name="Body part" value="Torso">Torso
-<br>
-<input type="radio" name="Body part" value="Legs">Legs
-<br>
-<input type="radio" name="Body part" value="Feet">Feet
-</form>
-
-
-
-
-
-<form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
-  <fieldset>
-    <input type="file" name="fileselect" id="fileselect"></input>
-    <input id="uploadbutton" type="button" value="Upload"/>  <!-- Or 'Upload to Parse' -->
-  </fieldset>
-</form>
-
-
-
-
-
-
-
-
+    <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
+      <fieldset>
+        <input type="file" name="fileselect" id="fileselect"></input>
+        <input id="uploadbutton" type="button" value="Upload"/>  <!-- Or 'Upload to Parse' -->
+      </fieldset>
+    </form>
 
 <div style='width: 600px; margin:auto'><!-- first div to center everything -->
-<center>
-<div id="slideshow-1" class='slider'>
-    <div style="width: 600px;">
-      <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&lt;</span></a>
-      <div id="cycle-1" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
-          data-cycle-slides="> div"
-          data-cycle-timeout="0"
-          data-cycle-prev="#slideshow-1 .cycle-prev"
-          data-cycle-next="#slideshow-1 .cycle-next"
-          data-cycle-fx="scrollHorz"
-          >
-		  <div><img src="images/BACKGROUNDFACE2.png" width=100 height=200></div>
-          <div><img src="images/BACKGROUNDFACE.png" width=100 height=200></div>
+  <center>
+  <div id="slideshow-1" class='slider'>
+      <div style="width: 600px;">
+        <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&lt;</span></a>
+        <div id="cycle-1" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
+            data-cycle-slides="> div"
+            data-cycle-timeout="0"
+            data-cycle-prev="#slideshow-1 .cycle-prev"
+            data-cycle-next="#slideshow-1 .cycle-next"
+            data-cycle-fx="scrollHorz"
+            >
+  		  <div><img src="images/BACKGROUNDFACE2.png" width=100 height=200></div>
+            <div><img src="images/BACKGROUNDFACE.png" width=100 height=200></div>
+        </div>
+        <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
       </div>
-      <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
-    </div>
-</div>
-</center>
-<div id="slideshow-2" class='slider'>
-    <div style="width: 600px;">
-      <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&lt;</span></a>
-      <div id="cycle-2" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
-          data-cycle-slides="> div"
-          data-cycle-timeout="0"
-          data-cycle-prev="#slideshow-2 .cycle-prev"
-          data-cycle-next="#slideshow-2 .cycle-next"
-          data-cycle-fx="scrollHorz"
-          >
-          <div><img src="images/picture1.png" width=500 height=200></div>
-          <div><img src="images/picture2.png" width=500 height=200></div>
-          <div><img src="images/picture3.png" width=500 height=200></div>
-          <div><img src="images/picture4.png" width=500 height=200></div>
+  </div>
+  </center>
+  <div id="slideshow-2" class='slider'>
+      <div style="width: 600px;">
+        <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&lt;</span></a>
+        <div id="cycle-2" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
+            data-cycle-slides="> div"
+            data-cycle-timeout="0"
+            data-cycle-prev="#slideshow-2 .cycle-prev"
+            data-cycle-next="#slideshow-2 .cycle-next"
+            data-cycle-fx="scrollHorz"
+            >
+            <div><img src="images/picture1.png" width=500 height=200></div>
+            <div><img src="images/picture2.png" width=500 height=200></div>
+            <div><img src="images/picture3.png" width=500 height=200></div>
+            <div><img src="images/picture4.png" width=500 height=200></div>
+        </div>
+        <a class="cycle-next" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&gt;</span></a>
       </div>
-      <a class="cycle-next" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&gt;</span></a>
-    </div>
-</div>
-
-<div id="slideshow-3" class='slider'>
-    <div style="width: 600px;">
-      <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&lt;</span></a>
-      <div id="cycle-3" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
-          data-cycle-slides="> div"
-          data-cycle-timeout="0"
-          data-cycle-prev="#slideshow-3 .cycle-prev"
-          data-cycle-next="#slideshow-3 .cycle-next"
-          data-cycle-fx="scrollHorz"
-          >
-          <div><img src="images/picture111.png"></div>
-          <div><img src="images/picture222.png"></div>
-          <div><img src="images/picture333.png"></div>
-          <div><img src="images/picture444.png"></div>
-
+  </div>
+  <div id="slideshow-3" class='slider'>
+      <div style="width: 600px;">
+        <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&lt;</span></a>
+        <div id="cycle-3" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
+            data-cycle-slides="> div"
+            data-cycle-timeout="0"
+            data-cycle-prev="#slideshow-3 .cycle-prev"
+            data-cycle-next="#slideshow-3 .cycle-next"
+            data-cycle-fx="scrollHorz"
+            >
+            <div><img src="images/picture111.png"></div>
+            <div><img src="images/picture222.png"></div>
+            <div><img src="images/picture333.png"></div>
+            <div><img src="images/picture444.png"></div>
+        </div>
+        <a class="cycle-next" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&gt;</span></a>
       </div>
-      <a class="cycle-next" style="vertical-align:top;display: inline-block; height:200px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:80px 10px 10px 10px;">&gt;</span></a>
-    </div>
-</div>
-
-
-<div id="slideshow-4" class='slider'>
-    <div style="width: 600px;">
-      <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&lt;</span></a>
-      <div id="cycle-4" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
-          data-cycle-slides="> div"
-          data-cycle-timeout="0"
-          data-cycle-prev="#slideshow-4 .cycle-prev"
-          data-cycle-next="#slideshow-4 .cycle-next"
-          data-cycle-fx="scrollHorz"
-          >
-          <div><img src="images/picture11.png" width=500 height=150></div>
-          <div><img src="images/picture22.png" width=500 height=150></div>
-          <div><img src="images/picture33.png" width=500 height=150></div>
-          <div><img src="images/picture44.png" width=500 height=150></div>
+  </div>
+  <div id="slideshow-4" class='slider'>
+      <div style="width: 600px;">
+        <a class="cycle-prev" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&lt;</span></a>
+        <div id="cycle-4" class="cycle-slideshow" style="display: inline-block; vertical-align: top"
+            data-cycle-slides="> div"
+            data-cycle-timeout="0"
+            data-cycle-prev="#slideshow-4 .cycle-prev"
+            data-cycle-next="#slideshow-4 .cycle-next"
+            data-cycle-fx="scrollHorz"
+            >
+            <div><img src="images/picture11.png" width=500 height=150></div>
+            <div><img src="images/picture22.png" width=500 height=150></div>
+            <div><img src="images/picture33.png" width=500 height=150></div>
+            <div><img src="images/picture44.png" width=500 height=150></div>
+        </div>
+        <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
       </div>
-      <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
-    </div>
-</div>
-
-
-</div><!-- end of the first div that centers everything -->
+  </div>
+  </div>
+</body>
