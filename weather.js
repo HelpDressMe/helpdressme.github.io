@@ -51,7 +51,6 @@ function myFunction() {
 }
 
 function currentLocation(evt) {
-  console.log(evt);
   evt.preventDefault();
   if (navigator.geolocation) {
     console.log("geolocation supported");
