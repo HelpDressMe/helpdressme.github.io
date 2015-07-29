@@ -194,9 +194,7 @@ function updateWeather(location) {
     		url: "http://api.openweathermap.org/data/2.5/weather",
     		jsonp: "callback",
     		dataType: "jsonp",
-    		data: {
-				location
-    		},
+    		data: location,
     		// Work with the response
     		success: function( response ) {
 				$('body').addClass( 'weather_'+response.weather[0].main );
@@ -215,6 +213,7 @@ function updateWeather(location) {
 				}
 				$('.weather-clothes').text(clothes);
 				document.getElementById("loc_temp").innerHTML = temperature;
+				console.log
 			}
 	});
     
