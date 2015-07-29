@@ -103,16 +103,16 @@ $('.weather-clothes').text(clothes);
 			success : function (results) {
 				results.forEach(function (result) {
 					if (result.attributes.type === 'Head'){
-					$( "#cycle-1" ).cycle( 'add', '<img src='+ result.attributes.picture+'width=100 height=200 />' );
+					$( "#cycle-1" ).cycle( 'add', '<img src='+ result.attributes.picture+' width=100 height=200 />' );
 					}
 					if (result.attributes.type === 'Torso'){
-					$( "#cycle-2" ).cycle( 'add', '<img src='+result.attributes.picture+'width=500 height=200 />' );
+					$( "#cycle-2" ).cycle( 'add', '<img src='+result.attributes.picture+' width=500 height=200 />' );
 					}
 				if (result.attributes.type === 'Legs'){
 					$( "#cycle-3" ).cycle( 'add', '<img src='+result.attributes.picture+' />' );
 					}
 				if (result.attributes.type === 'Feet'){
-					$( "#cycle-4" ).cycle( 'add', '<img src='+result.attributes.picture+'width=500 height=150 />' );
+					$( "#cycle-4" ).cycle( 'add', '<img src='+result.attributes.picture+' width=500 height=150 />' );
 					}
 					
 				})
@@ -151,7 +151,19 @@ $('.weather-clothes').text(clothes);
 		  clothing.save(null, {success: function(data){
 		  console.log("This has been saved :) " + data);}
 	  });
-		   alert("File available at: " + data.url);
+		   if (Itemcloth === 'Head'){
+					$( "#cycle-1" ).cycle( 'add', '<img src='+ data.url+' width=100 height=200 />' );
+					}
+					if (Itemcloth === 'Torso'){
+					$( "#cycle-2" ).cycle( 'add', '<img src='+ data.url+' width=500 height=200 />' );
+					}
+				if (Itemcloth === 'Legs'){
+					$( "#cycle-3" ).cycle( 'add', '<img src='+ data.url+' />' );
+					}
+				if (Itemcloth === 'Feet'){
+					$( "#cycle-4" ).cycle( 'add', '<img src='+ data.url+' width=500 height=150 />' );
+					}
+					alert("Your file has been Successfully uploaded!");
 		  console.log("File available at: " + data.url);
 
         },
