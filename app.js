@@ -44,18 +44,14 @@ $(document).ready(function(){
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
     // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
     $('#uploadbutton').click(function() {
       var serverUrl = 'https://api.parse.com/1/files/' + file.name;
      var form = document.getElementById("Bodypart");
 	   var Itemcloth = (form.elements["Body part"].value);
+	   var typecloth = (form.elements["Clothingtype"].value);
+	   var weatherType = (form.elements["weatherType"].value);
+	   var eventClassification = (form.elements["eventClassification"].value);
       $.ajax({
         type: "POST",
         beforeSend: function(request) {
@@ -68,20 +64,29 @@ $(document).ready(function(){
         processData: false,
         contentType: false,
         success: function(data) {
-          alert("File available at: " + data.url);
-		  console.log("File available at: " + data.url);
+			
 		  var clothing = new Clothing();
 		  clothing.set("type", Itemcloth)
-		  clothing.set("picture", data.url)
-		  clothing.save();
+		  clothing.set("picture", data.url)		  
+		  clothing.set("clothingtype", typecloth);
+		  clothing.set("weatherType", weatherType);
+		  clothing.set("eventClassification", eventClassification)
+		//  console.log(clothing)
+		  clothing.save(null, {success: function(data){
+		  console.log("This has been saved :) " + data);}
+	  });
+		   alert("File available at: " + data.url);
+		  console.log("File available at: " + data.url);
         },
         error: function(data) {
           var obj = jQuery.parseJSON(data);
           alert(obj.error);
-        }
+    }
       });
     });
 
 
   });
+  
+
   
