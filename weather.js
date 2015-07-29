@@ -95,8 +95,8 @@ function updateWeather(location) {
       }
       $('.weather-clothes').text(clothes);
       document.getElementById("loc_temp").innerHTML = temperature;
-      console.log("temperature for:" + response.name + " is:" + response.main
-        .temp);
+      console.log("temperature for:" + response.name + " is:" + response.main.temp);
+	  document.getElementById("location").value=response.name;
     }
   });
 }
