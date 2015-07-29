@@ -25,6 +25,12 @@ $(document).ready(function(){
 	//document.getElementById("cycle-3").append("bloop");//('<div><img src="http://files.parsetfss.com/ea534888-10a9-4e1b-8326-33b463902e1b/tfss-91d7b173-0aec-474f-9f6d-36eb5d677b98-Next.png"></div>');
 	
 	
+	
+	
+	
+	
+
+	
 });
 
 function myFunction() {
@@ -90,6 +96,28 @@ $('.weather-clothes').text(clothes);
     });
 
 	
+	// We're gonna get the pictures from umm parse.
+	
+	var findclothes = new Parse.Query(Clothing);
+	findclothes.find({
+			success : function (results) {
+				results.forEach(function (result) {
+					if (result.attributes.type === 'Head'){
+					$( "#cycle-1" ).cycle( 'add', '<img src='+ result.attributes.picture+'width=100 height=200 />' );
+					}
+					if (result.attributes.type === 'Torso'){
+					$( "#cycle-2" ).cycle( 'add', '<img src='+result.attributes.picture+'width=500 height=200 />' );
+					}
+				if (result.attributes.type === 'Legs'){
+					$( "#cycle-3" ).cycle( 'add', '<img src='+result.attributes.picture+' />' );
+					}
+				if (result.attributes.type === 'Feet'){
+					$( "#cycle-4" ).cycle( 'add', '<img src='+result.attributes.picture+'width=500 height=150 />' );
+					}
+					
+				})
+			}
+	})
 	
 	
     // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
@@ -125,8 +153,7 @@ $('.weather-clothes').text(clothes);
 	  });
 		   alert("File available at: " + data.url);
 		  console.log("File available at: " + data.url);
-		  $( "#cycle-2" ).append( '<div><img src='+data.url+' width=500 height=200></div>' );
-		  
+
         },
         error: function(data) {
           var obj = jQuery.parseJSON(data);
