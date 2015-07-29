@@ -20,7 +20,11 @@ $(document).ready(function(){
 		//	$('.weather-debug').text( JSON.stringify( response ) );
     		}
 	});
-
+	
+	//$( "#cycle-2" ).append( '<div><img src="images/pacture5.png" width=500 height=200></div>' );
+	//document.getElementById("cycle-3").append("bloop");//('<div><img src="http://files.parsetfss.com/ea534888-10a9-4e1b-8326-33b463902e1b/tfss-91d7b173-0aec-474f-9f6d-36eb5d677b98-Next.png"></div>');
+	
+	
 });
 
 function myFunction() {
@@ -121,6 +125,8 @@ $('.weather-clothes').text(clothes);
 	  });
 		   alert("File available at: " + data.url);
 		  console.log("File available at: " + data.url);
+		  $( "#cycle-2" ).append( '<div><img src='+data.url+' width=500 height=200></div>' );
+		  
         },
         error: function(data) {
           var obj = jQuery.parseJSON(data);
@@ -131,6 +137,7 @@ $('.weather-clothes').text(clothes);
 
 
   });
+  
   
 
   
