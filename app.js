@@ -183,7 +183,7 @@ function currentLocation(){
 }
 function success(position) {
 	console.log("current position is:"+position);
-	updateWeather({lat:position.coords.latitude,long:position.coords.longitude});
+	updateWeather({lat:position.coords.latitude,lon:position.coords.longitude});
 }  
 function error(error) {
 	console.log("some error occurred"+error.message);
@@ -213,7 +213,7 @@ function updateWeather(location) {
 				}
 				$('.weather-clothes').text(clothes);
 				document.getElementById("loc_temp").innerHTML = temperature;
-				console.log
+				console.log("temperature for:"+response.name+" is:"+response.main.temp);
 			}
 	});
     
