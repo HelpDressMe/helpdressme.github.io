@@ -135,5 +135,17 @@ $('.weather-clothes').text(clothes);
 
   });
   
+function currentLocation(){
+	if (navigator.geolocation) {
 
-  
+		console.log("geolocation supported");
+		navigator.geolocation.getCurrentPosition(success, error);
+	}
+}
+function success(position) {
+	console.log("current position is:"+position);
+
+}  
+function error(error) {
+	console.log("some error occurred"+error.message)
+}
