@@ -202,7 +202,8 @@ function updateWeather(location) {
 					clothes= 'body bag';
 				}
 				$('.weather-clothes').text(clothes);
+				document.getElementById("loc_temp").innerHTML = temperature;
 			}
 	});
-    document.getElementById("loc_temp").innerHTML = current_location;
+    
 }
