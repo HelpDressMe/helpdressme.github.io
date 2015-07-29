@@ -177,13 +177,13 @@ function error(error) {
 	console.log("some error occurred"+error.message);
 }
 function updateWeather(location) {
+	location.mode="jsonp";
 	$.ajax({
     		url: "http://api.openweathermap.org/data/2.5/weather",
     		jsonp: "callback",
     		dataType: "jsonp",
     		data: {
-				q: current_location,
-        		mode: "jsonp"
+				location
     		},
     		// Work with the response
     		success: function( response ) {
