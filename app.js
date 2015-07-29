@@ -79,23 +79,45 @@ $("#cycle-1").cycle();
 var head = getParameterByName('head') || 0;
 $("#cycle-1").cycle('goto', head);
 
-
+$("#cycle-1").on('cycle-after', function(event, opts, before, after ){
+	//console.log(after)
+	console.log(opts.nextSlide)
+	$("#headid").html(opts.nextSlide)
+});
 
 $("#cycle-2").cycle();
-var body = getParameterByName('body')|| 0;
+var body = getParameterByName('body') || 0;
 $("#cycle-2").cycle('goto', body);
+
+$("#cycle-2").on('cycle-after', function(event, opts, before, after ){
+	//console.log(after)
+	console.log(opts.nextSlide)
+	$("#bodyid").html(opts.nextSlide)
+});
+
+
+
+
+var legs = getParameterByName('legs')//|| 0;
+$("#cycle-3").cycle('goto', legs);
 
 $("#cycle-3").cycle();
 
-var legs = getParameterByName('legs')|| 0;
-$("#cycle-3").cycle('goto', legs);
-
+$("#cycle-3").on('cycle-after', function(event, opts, before, after ){
+	//console.log(after)
+	console.log(opts.nextSlide)
+	$("#legsid").html(opts.nextSlide)
+});
 
 $("#cycle-4").cycle();
 
-var feet = getParameterByName('feet')|| 0;
+$("#cycle-4").on('cycle-after', function(event, opts, before, after ){
+	//console.log(after)
+	console.log(opts.nextSlide)
+	$("#feetid").html(opts.nextSlide)
+});
+var feet = getParameterByName('feet')//|| 0;
 $("#cycle-4").cycle('goto', feet);
-
 
 	}
 	});	
