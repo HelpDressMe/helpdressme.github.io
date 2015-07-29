@@ -47,11 +47,9 @@ function myFunction() {
       $('.weather-clothes').text(clothes);
     }
   });
-  document.getElementById("loc_temp").innerHTML = current_location;
 }
 
 function currentLocation(evt) {
-  console.log(evt);
   evt.preventDefault();
   if (navigator.geolocation) {
     console.log("geolocation supported");
@@ -95,9 +93,8 @@ function updateWeather(location) {
         clothes = 'body bag';
       }
       $('.weather-clothes').text(clothes);
-      document.getElementById("loc_temp").innerHTML = temperature;
-      console.log("temperature for:" + response.name + " is:" + response.main
-        .temp);
+      console.log("temperature for:" + response.name + " is:" + response.main.temp);
+	  document.getElementById("location_input").value=response.name;
     }
   });
 }
