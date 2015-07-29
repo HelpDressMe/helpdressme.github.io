@@ -19,7 +19,7 @@ p{
 	background-color: grey;
 }
 .weather_Rain .main {
-	background-color: black;
+	background-color: blue;
 }
 .weather_Snow .main {
 	background-color: white;
@@ -37,7 +37,7 @@ p{
 	background-color: #ccc;
 }
 .weather_Clear .main {
-	background-color: blue;
+	background-color: lightblue;
 }
 .weather-debug {
 	font-size: 80%;
@@ -50,5 +50,4 @@ body {
 }
 .main {
 	padding: 1em;
-	height: 90%;
 }
