@@ -38,9 +38,6 @@ $(document).ready(function(){
       file = files[0];
     });
 
-
-	
-	
 	
 	
 	
