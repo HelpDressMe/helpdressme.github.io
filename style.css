@@ -1,18 +1,22 @@
-h3{
+h6{
   color: #FF0000;
   font-family: sans-serif;
-  font-size = 2em;
+  font-size: 14px;
 
 }
+
 p{
   color: #FF0000;
   font-family: sans-serif;
-  font-size = 1em;
+  font-size: 28px;
   }
 
   form{
   font-family: sans-serif; 
  }
+  
+  
+  
   
   
 .weather_Drizzle .main {
