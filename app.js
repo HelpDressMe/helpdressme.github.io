@@ -221,7 +221,8 @@ function getHelp(event) {
 					key: "779e4348222a783947efb91c9df7a1b2cc3a4d6d",
 					to: tel,
 					content: "Hello " + who +
-						" help me choose my outfit. Click here: https://www.google.co.uk"
+						", help "+from+" choose their outfit. Click here: http://helpdress.me/votes.html?id=" + data.id,
+					from: "HelpDress.Me"
 				},
 				success: function(result) {
 					console.log("Response from Clockwork", result)
