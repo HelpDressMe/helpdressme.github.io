@@ -190,6 +190,7 @@ function getHelp(event) {
 	console.log("getHelpButtonPressed");
 	var who=$("[name='who']")[0].value;
 	var tel=$("[name='tel']")[0].value;
+	var head=$("#cycle-1").data("cycle.opts").currSlide;
 	console.log("About To Send a Text Message",who,tel);
 	$.ajax({
 		url:"https://api.clockworksms.com/http/send.aspx",
