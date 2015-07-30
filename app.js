@@ -22,6 +22,9 @@ findVote.get(id, {
 		console.log(data.get("clothes"));
 		var clothes = data.get("clothes");
 		document.getElementById("head").src = (clothes.head);
+		document.getElementById("body").src = (clothes.body);
+		document.getElementById("legs").src = (clothes.legs);
+		document.getElementById("feet").src = (clothes.feet);
 	}
 })
 }
