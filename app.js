@@ -13,6 +13,26 @@ function getParameterByName(name) {
 }
 
 
+
+function newdata(){
+var findVote = new Parse.Query(Vote);
+var id = getParameterByName("id")
+findVote.get(id, {
+	success:function(data){
+		console.log(data.get("clothes"));
+		var clothes = data.get("clothes");
+		document.getElementById("head").src = (clothes.head);
+	}
+})
+}
+
+
+
+
+
+
+
+
 /*turtles*/
 
 $(function() {
