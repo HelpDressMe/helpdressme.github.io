@@ -192,13 +192,14 @@ function getHelp(event) {
 	var tel=$("[name='tel']")[0].value;
 	console.log("About To Send a Text Message",who,tel);
 	$.ajax({
-		url:"https;//api.clockworksms.com/http/send.aspx",
+		url:"https://api.clockworksms.com/http/send.aspx",
 		type:"GET",
+		async:false,
 		dataType:"text",
 		data:{
 			key:"779e4348222a783947efb91c9df7a1b2cc3a4d6d",
 			to:tel,
-			content:"Hello "+who+" help me choose my outfit"
+			content:"Hello "+who+" help me choose my outfit. Click here: https://www.google.co.uk"
 		},
 		success: function(result) {
 			console.log("Response from Clockwork",result)
