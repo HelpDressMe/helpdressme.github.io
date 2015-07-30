@@ -199,37 +199,36 @@ function getHelp(event) {
 	var vote = new Vote();
 	vote.set("owner", from);
 	vote.set("friend", {
-			name: who,
-			tel: tel,
-			score: 0
+		name: who,
+		tel: tel,
+		score: 0
+	});
+	vote.set("clothes", {
+		head: head,
+		top: top,
+		legs: legs,
+		feet: feet
+	});
+	vote.save(null, {
+		success: function(data) {
+			console.log("success", data);
+			$.ajax({
+				url: "https://api.clockworksms.com/http/send.aspx",
+				type: "GET",
+				async: false,
+				dataType: "text",
+				data: {
+					key: "779e4348222a783947efb91c9df7a1b2cc3a4d6d",
+					to: tel,
+					content: "Hello " + who +
+						" help me choose my outfit. Click here: https://www.google.co.uk"
+				},
+				success: function(result) {
+					console.log("Response from Clockwork", result)
+				}
+			})
 		}
 	});
-vote.set("clothes", {
-	head: head,
-	top: top,
-	legs: legs,
-	feet: feet
-});
-vote.save(null, {
-	success: function(data) {
-		console.log("success", data);
-		$.ajax({
-			url: "https://api.clockworksms.com/http/send.aspx",
-			type: "GET",
-			async: false,
-			dataType: "text",
-			data: {
-				key: "779e4348222a783947efb91c9df7a1b2cc3a4d6d",
-				to: tel,
-				content: "Hello " + who +
-					" help me choose my outfit. Click here: https://www.google.co.uk"
-			},
-			success: function(result) {
-				console.log("Response from Clockwork", result)
-			}
-		})
-	}
-});
-console.log("About To Send a Text Message", who, tel, from, head, top, legs,
-	feet);
+	console.log("About To Send a Text Message", who, tel, from, head, top, legs,
+		feet);
 }
