@@ -2,22 +2,66 @@
   <head>
    <!-- <a href="sms.html">Send these to your friends!</a> -->
     <title> Helpdress.me </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="jumbotron-narrow.css">
+	
     <script src="https://www.parse.com/downloads/javascript/parse/latest/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="app.js"></script>
     <script src="weather.js"></script>
     <script src="jquery.cycle2.js"></script>
+
   </head>
   <body>
-  <center>
-  <p>HelpDress.me
-  </center>
+  
+  
+  
+  
+  
+  
+     <div class="container">
+   <!--    <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>-->
+        <h3 class="text-muted">Project name</h3> 
+      
+
+      <div class="jumbotron">
+        <h1>HelpDress.me</h1>
+        <p class="lead">You can't change the weather but you CAN change your clothes!</p>
+     <!--   <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p> -->
+      </div>
+
+
+	  <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>weather</h4>
+          <p>Whats the weather today?</p>
+        </div>
+
+       
+      </div>
+	  
+	  
+	  
+      <footer class="footer">
+        <p>&copy; HelpDressMe2015</p>
+      </footer>
+
+     <!-- /container -->
+
+  
+ 
 <h6>helpdress.me?head=<span id="headid">0</span>&amp;body=<span id="bodyid">0</span>&amp;legs=<span id="legsid">0</span>&amp;feet=<span id="feetid">0</span></h6>
   
   
     <div class="main">
-    <form> 
     <form onsubmit="return false;">
 	     Location:
        <input type="text" name="location" value="London" maxlength="100" id="location_input"/>
@@ -118,7 +162,8 @@
         </div>
         <a class="cycle-next" style="vertical-align:top;display: inline-block; height:100px; background-color: #ccc"><span style="display:block;font-size: 200%; middle; padding:30px 10px 10px 10px;">&gt;</span></a>
       </div>
+	  </div> 
   </div>
-  </div>
+</div>
 </body>
 </html>
