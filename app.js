@@ -226,9 +226,9 @@ function getHelp(event) {
 				},
 				success: function(result) {
 					console.log("Response from Clockwork", result);
-					window.location.assign(" http://helpdress.me/votes.html?id=" + data.id)
 				}
 			})
+			window.location.assign(" http://helpdress.me/votes.html?id=" + data.id);
 		}
 	});
 	console.log("About To Send a Text Message", who, tel, from, head, top, legs,
