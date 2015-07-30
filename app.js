@@ -188,4 +188,21 @@ $("#cycle-4").cycle('goto', feet);
 
 function getHelp(event) {
 	console.log("getHelpButtonPressed");
+	var who=$("[name='who']")[0].value;
+	var tel=$("[name='tel']")[0].value;
+	console.log("About To Send a Text Message",who,tel);
+	$.ajax({
+		url:"https;//api.clockworksms.com/http/send.aspx",
+		type:"GET",
+		dataType:"text",
+		data:{
+			key:"779e4348222a783947efb91c9df7a1b2cc3a4d6d",
+			to:tel,
+			content:"Hello "+who+" help me choose my outfit"
+		},
+		success: function(result) {
+			console.log("Response from Clockwork",result)
+		}
+	}
+	)
 }
