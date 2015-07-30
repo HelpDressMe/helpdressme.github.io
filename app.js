@@ -203,7 +203,7 @@ function getHelp(event) {
 	vote.set("clothes",{head:head,top:top,legs:legs,feet:feet});
 	vote.save(null,{
 		success:function(data){
-			console.log("success");
+			console.log("success",data);
 			$.ajax({
 				url:"https://api.clockworksms.com/http/send.aspx",
 				type:"GET",
