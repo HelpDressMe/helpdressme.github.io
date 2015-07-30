@@ -5,10 +5,11 @@ var javakey = "CLw7NNxumkyJBvOJ2h2LJFJyq4nZZb8FnV8RFAIt";
 
 
 function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g,
+		" "));
 }
 
 
@@ -52,7 +53,7 @@ $(function() {
 	});
 
 
-	
+
 	var findclothes = new Parse.Query(Clothing);
 	findclothes.find({
 		success: function(results) {
@@ -74,58 +75,55 @@ $(function() {
 						' width=500 height=150 />');
 				}
 			});
-$("#cycle-1").cycle();
+			$("#cycle-1").cycle();
 
-var head = getParameterByName('head') || 0;
-$("#cycle-1").cycle('goto', head);
+			var head = getParameterByName('head') || 0;
+			$("#cycle-1").cycle('goto', head);
 
-$("#cycle-1").on('cycle-after', function(event, opts, before, after ){
-	//console.log(after)
-	console.log(opts.nextSlide)
-	$("#headid").html(opts.nextSlide)
-});
+			$("#cycle-1").on('cycle-after', function(event, opts, before, after) {
+				//console.log(after)
+				console.log(opts.nextSlide)
+				$("#headid").html(opts.nextSlide)
+			});
 
-$("#cycle-2").cycle();
-var body = getParameterByName('body') || 0;
-$("#cycle-2").cycle('goto', body);
+			$("#cycle-2").cycle();
+			var body = getParameterByName('body') || 0;
+			$("#cycle-2").cycle('goto', body);
 
-$("#cycle-2").on('cycle-after', function(event, opts, before, after ){
-	//console.log(after)
-	console.log(opts.nextSlide)
-	$("#bodyid").html(opts.nextSlide)
-});
-
-
+			$("#cycle-2").on('cycle-after', function(event, opts, before, after) {
+				//console.log(after)
+				console.log(opts.nextSlide)
+				$("#bodyid").html(opts.nextSlide)
+			});
 
 
-var legs = getParameterByName('legs')//|| 0;
-$("#cycle-3").cycle('goto', legs);
 
-$("#cycle-3").cycle();
+			var legs = getParameterByName('legs') //|| 0;
+			$("#cycle-3").cycle('goto', legs);
 
-$("#cycle-3").on('cycle-after', function(event, opts, before, after ){
-	//console.log(after)
-	console.log(opts.nextSlide)
-	$("#legsid").html(opts.nextSlide)
-});
+			$("#cycle-3").cycle();
 
-$("#cycle-4").cycle();
+			$("#cycle-3").on('cycle-after', function(event, opts, before, after) {
+				//console.log(after)
+				console.log(opts.nextSlide)
+				$("#legsid").html(opts.nextSlide)
+			});
 
-$("#cycle-4").on('cycle-after', function(event, opts, before, after ){
-	//console.log(after)
-	console.log(opts.nextSlide)
-	$("#feetid").html(opts.nextSlide)
-});
-var feet = getParameterByName('feet')//|| 0;
-$("#cycle-4").cycle('goto', feet);
+			$("#cycle-4").cycle();
 
-	}
-	});	
-	
-	
-	
-	
-	
+			$("#cycle-4").on('cycle-after', function(event, opts, before, after) {
+				//console.log(after)
+				console.log(opts.nextSlide)
+				$("#feetid").html(opts.nextSlide)
+			});
+			var feet = getParameterByName('feet') //|| 0;
+			$("#cycle-4").cycle('goto', feet);
+
+		}
+	});
+
+
+
 	// This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
 	$('#uploadbutton').click(function() {
 		var serverUrl = 'https://api.parse.com/1/files/' + file.name;
@@ -146,6 +144,7 @@ $("#cycle-4").cycle('goto', feet);
 			processData: false,
 			contentType: false,
 			success: function(data) {
+
 
 				var clothing = new Clothing();
 				clothing.set("type", Itemcloth);
@@ -186,39 +185,51 @@ $("#cycle-4").cycle('goto', feet);
 	});
 });
 
-var Vote=Parse.Object.extend("Vote");
+var Vote = Parse.Object.extend("Vote");
 
 function getHelp(event) {
 	console.log("getHelpButtonPressed");
-	var who=$("[name='who']")[0].value;
-	var tel=$("[name='tel']")[0].value;
-	var from=$("[name='from']")[0].value;
-	var head=$("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide].src;
-	var top=$("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide].src;
-	var legs=$("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide].src;
-	var feet=$("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide].src;
-	var vote=new Vote();
-	vote.set("owner",from);
-	vote.set("friend",{name:who,tel:tel,score:0}});
-	vote.set("clothes",{head:head,top:top,legs:legs,feet:feet});
-	vote.save(null,{
-		success:function(data){
-			console.log("success",data);
-			$.ajax({
-				url:"https://api.clockworksms.com/http/send.aspx",
-				type:"GET",
-				async:false,
-				dataType:"text",
-				data:{
-					key:"779e4348222a783947efb91c9df7a1b2cc3a4d6d",
-					to:tel,
-					content:"Hello "+who+" help me choose my outfit. Click here: https://www.google.co.uk"
-				},
-				success: function(result) {
-				console.log("Response from Clockwork",result)
-				}
-			})
+	var who = $("[name='who']")[0].value;
+	var tel = $("[name='tel']")[0].value;
+	var from = $("[name='from']")[0].value;
+	var head = $("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide].src;
+	var top = $("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide].src;
+	var legs = $("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide].src;
+	var feet = $("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide].src;
+	var vote = new Vote();
+	vote.set("owner", from);
+	vote.set("friend", {
+			name: who,
+			tel: tel,
+			score: 0
 		}
 	});
-	console.log("About To Send a Text Message",who,tel,from,head,top,legs,feet);
+vote.set("clothes", {
+	head: head,
+	top: top,
+	legs: legs,
+	feet: feet
+});
+vote.save(null, {
+	success: function(data) {
+		console.log("success", data);
+		$.ajax({
+			url: "https://api.clockworksms.com/http/send.aspx",
+			type: "GET",
+			async: false,
+			dataType: "text",
+			data: {
+				key: "779e4348222a783947efb91c9df7a1b2cc3a4d6d",
+				to: tel,
+				content: "Hello " + who +
+					" help me choose my outfit. Click here: https://www.google.co.uk"
+			},
+			success: function(result) {
+				console.log("Response from Clockwork", result)
+			}
+		})
+	}
+});
+console.log("About To Send a Text Message", who, tel, from, head, top, legs,
+	feet);
 }
