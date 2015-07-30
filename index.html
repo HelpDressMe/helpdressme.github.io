@@ -41,8 +41,8 @@
 
 	  <div class="row marketing">
         <div class="col-lg-6">
-          <h4>weather</h4>
-          <p>Whats the weather today?</p>
+     <!--     <h4>weather</h4>
+          <p>Whats the weather today?</p> -->
         </div>
 
        
@@ -50,9 +50,7 @@
 	  
 	  
 	  
-      <footer class="footer">
-        <p>&copy; HelpDressMe2015</p>
-      </footer>
+
 
      <!-- /container -->
 
@@ -60,36 +58,46 @@
  
 <h6>helpdress.me?head=<span id="headid">0</span>&amp;body=<span id="bodyid">0</span>&amp;legs=<span id="legsid">0</span>&amp;feet=<span id="feetid">0</span></h6>
   
-  
+
     <div class="main">
+	<h3>The Weather: </h3>
     <form onsubmit="return false;">
 	     Location:
        <input type="text" name="location" value="London" maxlength="100" id="location_input"/>
 	   <button onclick="myFunction()">Go!</button>
        <button onclick="currentLocation(event)" type="button">Current Location</button>
      </form>
-
-
     The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>&#176;C.
     you should wear a  <span class='weather-clothes'>??</span>
-
+	</div>
+	
+	<br>
+	</br>
+	
+<div class="main">
+<h3> Upload your clothes!: </h3>
     <form id="Bodypart">
       Please give a description on this peice of clothing: <input type="text" name="Clothingtype"><br>
-      What weather would you wear this in? <select name="weatherType"> <option value="sunny">Sunny/Hot</option> <option value="cloudy">Cloudy/Cold</option> <option value="rain">Raining/Wet</option> </select> <br>
+	 What weather would you wear this in? <select name="weatherType"> <option value="sunny">Sunny/Hot</option> <option value="cloudy">Cloudy/Cold</option> <option value="rain">Raining/Wet</option> </select> <br>
       What type of event would you wear this to? <select name="eventClassification"> <option value="casual">Casual</option> <option value="formal">Formal</option> <option value="fancy">Fancy</option> <option value="family">Family</option> <option value="wedding">Wedding</option> <option value="celebrations">Celebrations/Parties</option> <option value="date">Date</option> <option value="school">School</option> </select> <br>
       <input type="radio" name="Body part" value="Head" checked>Head <br>
       <input type="radio" name="Body part" value="Torso">Torso <br>
       <input type="radio" name="Body part" value="Legs">Legs <br>
       <input type="radio" name="Body part" value="Feet">Feet
     </form>
-
+</div>
+	
+	
+<br>
+<div>
     <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
       <fieldset>
         <input type="file" name="fileselect" id="fileselect"></input>
         <input id="uploadbutton" type="button" value="Upload"/>  <!-- Or 'Upload to Parse' -->
       </fieldset>
     </form>
-
+</div>
+</br>
 <div style='width: 600px; margin:auto'><!-- first div to center everything -->
   <center>
   <div id="slideshow-1" class='slider'>
@@ -164,6 +172,9 @@
       </div>
 	  </div> 
   </div>
-</div>
+        <footer class="footer">
+        <p>&copy; HelpDressMe2015</p>
+      </footer>
+</div>	  
 </body>
 </html>
