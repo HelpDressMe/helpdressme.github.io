@@ -185,3 +185,7 @@ $("#cycle-4").cycle('goto', feet);
 		});
 	});
 });
+
+function getHelp(event) {
+	console.log("getHelpButtonPressed");
+}
