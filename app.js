@@ -215,10 +215,10 @@ function getHelp(event) {
 	var who = $("[name='who']")[0].value;
 	var tel = $("[name='tel']")[0].value;
 	var from = $("[name='from']")[0].value;
-	var head = $("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide].src;
-	var top = $("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide].src;
-	var legs = $("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide].src;
-	var feet = $("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide].src;
+	var head = $("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide+1].src;
+	var top = $("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide+1].src;
+	var legs = $("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide+1].src;
+	var feet = $("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide+1].src;
 	var vote = new Vote();
 	vote.set("owner", from);
 	vote.set("friend", {
