@@ -220,9 +220,9 @@ function getHelp(event) {
 				data: {
 					key: "779e4348222a783947efb91c9df7a1b2cc3a4d6d",
 					to: tel,
+					from: "HelpDressMe",
 					content: "Hello " + who +
 						", help "+from+" choose their outfit. Click here: http://helpdress.me/votes.html?id=" + data.id,
-					from: "HelpDress.Me"
 				},
 				success: function(result) {
 					console.log("Response from Clockwork", result)
