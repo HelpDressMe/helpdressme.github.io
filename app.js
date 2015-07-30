@@ -22,7 +22,7 @@ findVote.get(id, {
 		console.log(data.get("clothes"));
 		var clothes = data.get("clothes");
 		document.getElementById("head").src = (clothes.head);
-		document.getElementById("torso").src = (clothes.top);
+		document.getElementById("body").src = (clothes.top);
 		document.getElementById("legs").src = (clothes.legs);
 		document.getElementById("feet").src = (clothes.feet);
 	}
