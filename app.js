@@ -225,7 +225,8 @@ function getHelp(event) {
 						", help "+from+" choose their outfit. Click here: http://helpdress.me/votes.html?id=" + data.id+"&friend="+who
 				},
 				success: function(result) {
-					console.log("Response from Clockwork", result)
+					console.log("Response from Clockwork", result);
+					window.location.assign(" http://helpdress.me/votes.html?id=" + data.id)
 				}
 			})
 		}
