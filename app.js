@@ -222,7 +222,7 @@ function getHelp(event) {
 					to: tel,
 					from: "HelpDressMe",
 					content: "Hello " + who +
-						", help "+from+" choose their outfit. Click here: http://helpdress.me/votes.html?id=" + data.id,
+						", help "+from+" choose their outfit. Click here: http://helpdress.me/votes.html?id=" + data.id+"&friend="+who
 				},
 				success: function(result) {
 					console.log("Response from Clockwork", result)
