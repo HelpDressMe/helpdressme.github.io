@@ -190,8 +190,11 @@ function getHelp(event) {
 	console.log("getHelpButtonPressed");
 	var who=$("[name='who']")[0].value;
 	var tel=$("[name='tel']")[0].value;
-	var head=$("#cycle-1").data("cycle.opts").currSlide;
-	console.log("About To Send a Text Message",who,tel);
+	var head=$("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide].src;
+	var top=$("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide].src;
+	var legs=$("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide].src;
+	var feet=$("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide].src;
+	console.log("About To Send a Text Message",who,tel,head,top,legs,feet);
 	$.ajax({
 		url:"https://api.clockworksms.com/http/send.aspx",
 		type:"GET",
