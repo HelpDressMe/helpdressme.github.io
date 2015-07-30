@@ -186,28 +186,39 @@ $("#cycle-4").cycle('goto', feet);
 	});
 });
 
+var Vote=Parse.Object.extend("Vote");
+
 function getHelp(event) {
 	console.log("getHelpButtonPressed");
 	var who=$("[name='who']")[0].value;
 	var tel=$("[name='tel']")[0].value;
+	var from=$("[name='from']")[0].value;
 	var head=$("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide].src;
 	var top=$("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide].src;
 	var legs=$("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide].src;
 	var feet=$("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide].src;
-	console.log("About To Send a Text Message",who,tel,head,top,legs,feet);
-	$.ajax({
-		url:"https://api.clockworksms.com/http/send.aspx",
-		type:"GET",
-		async:false,
-		dataType:"text",
-		data:{
-			key:"779e4348222a783947efb91c9df7a1b2cc3a4d6d",
-			to:tel,
-			content:"Hello "+who+" help me choose my outfit. Click here: https://www.google.co.uk"
-		},
-		success: function(result) {
-			console.log("Response from Clockwork",result)
+	var vote=new Vote();
+	vote.set("owner",from);
+	vote.set("friend",{name:who,tel:tel,score:0}});
+	vote.set("clothes",{head:head,top:top,legs:legs,feet:feet});
+	vote.save(null,{
+		success:function(data){
+			console.log("success");
+			$.ajax({
+				url:"https://api.clockworksms.com/http/send.aspx",
+				type:"GET",
+				async:false,
+				dataType:"text",
+				data:{
+					key:"779e4348222a783947efb91c9df7a1b2cc3a4d6d",
+					to:tel,
+					content:"Hello "+who+" help me choose my outfit. Click here: https://www.google.co.uk"
+				},
+				success: function(result) {
+				console.log("Response from Clockwork",result)
+				}
+			})
 		}
-	}
-	)
+	});
+	console.log("About To Send a Text Message",who,tel,from,head,top,legs,feet);
 }
