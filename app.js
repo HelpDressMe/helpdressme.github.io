@@ -32,7 +32,7 @@ findVote.get(id, {
 		document.getElementById("legs").src = (clothes.legs);
 		document.getElementById("feet").src = (clothes.feet);
 		
-		if friend{
+		if (friend){
 		$("h3")[].value = friend + ", please rate my outfit!";
 		}
 		else{
