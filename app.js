@@ -40,7 +40,7 @@ findVote.get(id, {
 		else{
 			$("h3").text(judge.name + " has rated your outfit");
 				var Score = judge.score;
-				$("input[name='group-1'][value='"+Score +"']").select();		
+			$("input[value='"+ Score"']")[0].click()
 			}
 		
 		
