@@ -34,11 +34,11 @@ findVote.get(id, {
 		document.getElementById("feet").src = (clothes.feet);
 		
 		if (friend && friend.lengh>0){
-		$("h3")[0].value = friend + ", please rate my outfit!";
+	$("h3").text(friend + ", please rate my outfit!");
 		}
 		
 		else{
-			$("h3")[0].value = judge.name + ", has rated your outfit as...";
+			$("h3")[0].text(judge.name + ", has rated your outfit as...");
 				var Score = judge.score;
 				$("input[name='group-1'][value='"+Score +"']").select();		
 			}
