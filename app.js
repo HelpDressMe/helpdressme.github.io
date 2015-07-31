@@ -33,10 +33,10 @@ findVote.get(id, {
 		document.getElementById("feet").src = (clothes.feet);
 		
 		if (friend){
-		$("h3").value = friend + ", please rate my outfit!";
+		$("h3")[0].value = friend + ", please rate my outfit!";
 		}
 		else{
-			$("h3")[].value = judge.name + ", has rated your outfit as...";
+			$("h3")[0].value = judge.name + ", has rated your outfit as...";
 				var Score = judge.score;
 				$("input[name='group-1'][value='"+Score +"']").select();		
 			}
