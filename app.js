@@ -35,6 +35,15 @@ findVote.get(id, {
 		
 		if (friend && friend.lengh>0){
 	$("h3").text(friend + ", please rate my outfit!");
+	$( "input" ).click(function() {
+  alert( "Handler for .click() called." );
+});
+	
+	
+	
+	
+	
+	
 		}
 		
 		else{
