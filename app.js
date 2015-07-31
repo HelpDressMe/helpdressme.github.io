@@ -18,6 +18,7 @@ function newdata(){
 var findVote = new Parse.Query(Vote);
 var id = getParameterByName("id");
 var friend =  getParameterByName("friend");
+console.log(friend);
 
 
 
@@ -35,6 +36,7 @@ findVote.get(id, {
 		if (friend){
 		$("h3")[0].value = friend + ", please rate my outfit!";
 		}
+		
 		else{
 			$("h3")[0].value = judge.name + ", has rated your outfit as...";
 				var Score = judge.score;
