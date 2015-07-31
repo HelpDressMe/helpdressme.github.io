@@ -16,19 +16,37 @@ function getParameterByName(name) {
 
 function newdata(){
 var findVote = new Parse.Query(Vote);
-var id = getParameterByName("id")
+var id = getParameterByName("id");
+var friend =  getParameterByName("friend");
+
+
+
+
 findVote.get(id, {
 	success:function(data){
 		console.log(data.get("clothes"));
 		var clothes = data.get("clothes");
+		var judge = data.get("friend")
 		document.getElementById("head").src = (clothes.head);
 		document.getElementById("body").src = (clothes.top);
 		document.getElementById("legs").src = (clothes.legs);
 		document.getElementById("feet").src = (clothes.feet);
+		
+		if friend{
+		$("h3")[].value = friend + ", please rate my outfit!";
+		}
+		else{
+			$("h3")[].value = judge.name + ", has rated your outfit as...";
+				var Score = judge.score;
+				$("input[name='group-1' value='"+Score +"']").select;		
+			}
+		
+		
+		
+		
 	}
 })
 }
-
 
 
 
