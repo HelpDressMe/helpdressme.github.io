@@ -1,3 +1,4 @@
+
 <html>
   <head>
    <!-- <a href="sms.html">Send these to your friends!</a> -->
@@ -11,11 +12,23 @@
     <script src="app.js"></script>
     <script src="weather.js"></script>
     <script src="jquery.cycle2.js"></script>
-
+	
   </head>
   <body>
 
+  
+  
+  
+  
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
@@ -177,7 +190,21 @@
 		Tel:<input type="tel" name="tel"></input>
 		<button type="button" onClick="getHelp(event)">Get help!</button> 
 	</form>
+	<div class="fb-like" data-href="http://helpdress.me/" data-width="300" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
+  <!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-size="medium"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'en-GB'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
         <footer class="footer">
         <p>&copy; HelpDressMe2015</p>
       </footer>
