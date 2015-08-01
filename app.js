@@ -63,8 +63,6 @@ findVote.get(id, {
 
 
 
-
-
 /*turtles*/
 
 $(function() {

@@ -9,7 +9,7 @@
    <!-- <a href="sms.html">Send these to your friends!</a> -->
     <title> Helpdress.me </title>
 	<!--<link rel="stylesheet" type="text/css" href="style.css"> -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="jumbotron-narrow.css">
 	<link rel="shortcut icon" href="favicon.ico">
     <script src="https://www.parse.com/downloads/javascript/parse/latest/js"></script>
@@ -51,7 +51,7 @@
 
          	   <img src="images/HelpDressMeLogo.png" width="50%" height="30%"/>
         <p class="lead">Find your friend approved outfit for the day!</p>
-     <!--   <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p> -->
+     <!--   <p><a class="btn btn-lg btn-info" href="#" role="button">Sign up today</a></p> -->
       </div>
 
 
@@ -80,8 +80,8 @@
     <form onsubmit="return false;">
 	     Location:
        <input type="text" name="location" value="London" maxlength="100" id="location_input"/>
-	   <button onclick="myFunction()">Go!</button>
-       <button onclick="currentLocation(event)" type="button">Current Location</button>
+	   <button class="btn btn-info" onclick="myFunction()">Go!</button>
+       <button onclick="currentLocation(event)" class="btn btn-info" type="button">Current Location</button>
      </form>
     The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>&#176;C.
     you should wear a  <span class='weather-clothes'>??</span>
@@ -106,10 +106,20 @@
 
 <br>
 
-    <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
+
+
+
+
+
+
+
+
+
+
+    <form id="fileupload" name="fileupload" enctype="multipart/form-data"  method="post">
       <fieldset>
-        <input type="file" name="fileselect"  id="fileselect" class="btn btn-default" ></input>
-        <input id="uploadbutton" type="button" class="btn btn-default" value="Upload"/>  <!-- Or 'Upload to Parse' -->
+   <!--     <input type="file" name="fileselect"  class="btn btn-info" id="fileselect" ></input> -->
+        <input id="uploadbutton" type="file" class="btn btn-primary" value="Upload"/>  <!-- Or 'Upload to Parse' -->
       </fieldset>
     </form>
 </div>
@@ -193,7 +203,7 @@
 		Your name?<input type="text" value="Jane" name="from"></input>
 		Friend's name?<input type="text" value="John" name="who"></input>
 		Tel:<input type="tel" name="tel"></input>
-		<button type="button" onClick="getHelp(event)">Get help!</button> 
+		<button class="btn btn-info" type="button" onClick="getHelp(event)">Get help!</button> 
 	</form>
 <!--	<div class="fb-like" data-href="http://helpdress.me/" data-width="300" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
