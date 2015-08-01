@@ -14,52 +14,40 @@ function getParameterByName(name) {
 
 
 
-function newdata(){
-var findVote = new Parse.Query(Vote);
-var id = getParameterByName("id");
-var friend =  getParameterByName("friend");
-console.log(friend);
-
-
-
-
-findVote.get(id, {
-	success:function(data){
-		console.log(data.get("clothes"));
-		var clothes = data.get("clothes");
-		var judge = data.get("friend")
-		document.getElementById("head").src = (clothes.head);
-		document.getElementById("body").src = (clothes.top);
-		document.getElementById("legs").src = (clothes.legs);
-		document.getElementById("feet").src = (clothes.feet);
-		
-		if (friend && friend.lengh>0){
-	$("h3").text(friend + ", please rate my outfit!");
-	$( "input" ).click(function() {
-  alert( "Handler for .click() called." );
-});
-	
-	
-	
-	
-	
-	
-		}
-		
-		else{
-			$("h3").text(judge.name + " has rated your outfit");
+function newdata() {
+	var findVote = new Parse.Query(Vote);
+	var id = getParameterByName("id");
+	var friend = getParameterByName("friend");
+	console.log(friend);
+	findVote.get(id, {
+		success: function(data) {
+			console.log(data.get("clothes"));
+			var clothes = data.get("clothes");
+			var judge = data.get("friend");
+			document.getElementById("head").src = (clothes.head);
+			document.getElementById("body").src = (clothes.top);
+			document.getElementById("legs").src = (clothes.legs);
+			document.getElementById("feet").src = (clothes.feet);
+			if (friend && friend.length > 0) {
+				$("h3").text(friend + ", please rate my outfit");
+				$("input").click(function() {
+					console.log("Handler for .click() called.");
+					var rating = this.value;
+					judge.score = rating;
+					data.save(null, {
+						success: function(savedData) {
+							console.log("Saved ", savedData, savedData.get("friend").score);
+						}
+					});
+				});
+			} else {
+				$("h3").text(judge.name + " has rated your outfit");
 				var Score = judge.score;
-		//	$("input[value='"+ Score"']")[0].click()
+				$("input[value='" + Score + "']")[0].click();
 			}
-		
-		
-		
-		
-	}
-})
+		}
+	})
 }
-
-
 
 
 
@@ -242,10 +230,10 @@ function getHelp(event) {
 	var who = $("[name='who']")[0].value;
 	var tel = $("[name='tel']")[0].value;
 	var from = $("[name='from']")[0].value;
-	var head = $("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide+1].src;
-	var top = $("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide+1].src;
-	var legs = $("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide+1].src;
-	var feet = $("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide+1].src;
+	var head = $("#cycle-1 img")[$("#cycle-1").data("cycle.opts").currSlide + 1].src;
+	var top = $("#cycle-2 img")[$("#cycle-2").data("cycle.opts").currSlide + 1].src;
+	var legs = $("#cycle-3 img")[$("#cycle-3").data("cycle.opts").currSlide + 1].src;
+	var feet = $("#cycle-4 img")[$("#cycle-4").data("cycle.opts").currSlide + 1].src;
 	var vote = new Vote();
 	vote.set("owner", from);
 	vote.set("friend", {
@@ -272,7 +260,9 @@ function getHelp(event) {
 					to: tel,
 					from: "HelpDressMe",
 					content: "Hello " + who +
-						", help "+from+" choose their outfit. Click here: http://helpdress.me/votes.html?id=" + data.id+"&friend="+who
+						", help " + from +
+						" choose their outfit. Click here: http://helpdress.me/votes.html?id=" +
+						data.id + "&friend=" + who
 				},
 				success: function(result) {
 					console.log("Response from Clockwork", result);
