@@ -49,7 +49,7 @@ findVote.get(id, {
 		else{
 			$("h3").text(judge.name + " has rated your outfit");
 				var Score = judge.score;
-			$("input[value='"+ Score"']")[0].click()
+		//	$("input[value='"+ Score"']")[0].click()
 			}
 		
 		
