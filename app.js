@@ -29,7 +29,7 @@ function newdata() {
 			document.getElementById("legs").src = (clothes.legs);
 			document.getElementById("feet").src = (clothes.feet);
 			if (friend && friend.length > 0) {
-				$("h3").text(friend + ", please rate my outfit");
+				$("h5").text(friend + ", please rate my outfit");
 				$("input").click(function() {
 					console.log("Handler for .click() called.");
 					var rating = this.value;
