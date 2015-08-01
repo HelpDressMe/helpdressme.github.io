@@ -50,19 +50,12 @@
       <div class="jumbotron">
 
          	   <img src="images/HelpDressMeLogo.png" width="50%" height="30%"/>
-        <p class="lead">Find your friend approved outfit for the day!</p>
+        <p class="form">Find your friend approved outfit for the day!</p>
      <!--   <p><a class="btn btn-lg btn-info" href="#" role="button">Sign up today</a></p> -->
       </div>
 
 
-	  <div class="row marketing">
-        <div class="col-lg-6">
-     <!--     <h4>weather</h4>
-          <p>Whats the weather today?</p> -->
-        </div>
 
-
-      </div>
 
 <!--comment-->
 
@@ -75,28 +68,28 @@
 <!--<h6>helpdress.me?head=<span id="headid">0</span>&amp;body=<span id="bodyid">0</span>&amp;legs=<span id="legsid">0</span>&amp;feet=<span id="feetid">0</span></h6> -->
 
 
-    <div class="main">
-	<h3>The Weather: </h3>
+    <div class="jumbotron">
+	<center><h1 class="headings">THE WEATHER</h1>
     <form onsubmit="return false;">
 	     Location:
        <input type="text" name="location" value="London" maxlength="100" id="location_input"/>
 	   <button class="btn btn-info" onclick="myFunction()">Go!</button>
        <button onclick="currentLocation(event)" class="btn btn-info" type="button">Current Location</button>
      </form>
-    The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>&#176;C.
-    you should wear a  <span class='weather-clothes'>??</span>
+    The weather is: <span class='weather-text'>??</span> and <span class='weather-temp'>??</span>
 	</div>
+</center>
 
-	<br>
-	</br>
 
-<div class="main">
-<h3> Upload your clothes!: </h3>
-    <form id="Bodypart">
-      Please give a description on this peice of clothing: <input type="text" name="Clothingtype"><br>
+<div class="jumbotron">
+<h1 class="headings"> ADD YOUR CLOTHES </h1>
+<center>
+    <form class="form">
+      Please give a description on this piece of clothing: <input type="text" name="Clothingtype"><br>
+	  <br>
 	 What weather would you wear this in? <select name="weatherType"> <option value="sunny">Sunny/Hot</option> <option value="cloudy">Cloudy/Cold</option> <option value="rain">Raining/Wet</option> </select> <br>
-      What type of event would you wear this to? <select name="eventClassification"> <option value="casual">Casual</option> <option value="formal">Formal</option> <option value="fancy">Fancy</option> <option value="family">Family</option> <option value="wedding">Wedding</option> <option value="celebrations">Celebrations/Parties</option> <option value="date">Date</option> <option value="school">School</option> </select> <br>
-      <input type="radio" name="Body part" value="Head" checked>Head <br>
+     <br> What type of event would you wear this to? <select name="eventClassification"> <option value="casual">Casual</option> <option value="formal">Formal</option> <option value="fancy">Fancy</option> <option value="family">Family</option> <option value="wedding">Wedding</option> <option value="celebrations">Celebrations/Parties</option> <option value="date">Date</option> <option value="school">School</option> </select> <br>
+    <br>  <input type="radio" name="Body part" value="Head" checked>Head <br>
       <input type="radio" name="Body part" value="Torso">Torso <br>
       <input type="radio" name="Body part" value="Legs">Legs <br>
       <input type="radio" name="Body part" value="Feet">Feet
@@ -104,26 +97,14 @@
 
 
 
-<br>
-
-
-
-
-
-
-
-
-
-
-
     <form id="fileupload" name="fileupload" enctype="multipart/form-data"  method="post">
       <fieldset>
    <!--     <input type="file" name="fileselect"  class="btn btn-info" id="fileselect" ></input> -->
-        <input id="uploadbutton" type="file" class="btn btn-primary" value="Upload"/>  <!-- Or 'Upload to Parse' -->
+        <input id="uploadbutton" type="file" class="btn btn-info" value="Upload"/>  <!-- Or 'Upload to Parse' -->
       </fieldset>
     </form>
+	</center>
 </div>
-</br>
 <div style='width: 600px; margin:auto'><!-- first div to center everything -->
   <center>
   <div id="slideshow-1" class='slider'>
@@ -197,14 +178,16 @@
       </div>
 	  </div>
   </div>
-  <div>
+  <br>
+  <div class="jumbotron">
 	<form>
-		<h3>Who do you want to ask?</h3>
+		<h1 class="headings">GET HELP FROM A FRIEND</h1>
 		Your name?<input type="text" value="Jane" name="from"></input>
 		Friend's name?<input type="text" value="John" name="who"></input>
 		Tel:<input type="tel" name="tel"></input>
 		<button class="btn btn-info" type="button" onClick="getHelp(event)">Get help!</button> 
 	</form>
+	</div>
 <!--	<div class="fb-like" data-href="http://helpdress.me/" data-width="300" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
 <div class="g-plusone" data-size="medium"></div>
@@ -222,6 +205,5 @@
         <footer class="footer">
         <p>&copy; HelpDressMe2015</p>
       </footer>
-</div>
 </body>
 </html>

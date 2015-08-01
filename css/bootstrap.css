@@ -8,7 +8,14 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+	  background-color: 
 }
+
+.headings{
+font-family: ;
+}
+
+
 body {
   margin: 0;
 }
@@ -2667,6 +2674,13 @@ input[type="search"] {
   vertical-align: middle;
   cursor: pointer;
 }
+
+.slider{
+background-color: #ffffff;
+}
+
+
+
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
