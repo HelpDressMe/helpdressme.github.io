@@ -261,7 +261,7 @@ function getHelp(event) {
 					from: "HelpDressMe",
 					content: "Hello " + who +
 						", help " + from +
-						" choose their outfit. Click here: http://helpdress.me/votes.html?id=" +
+						" choose an outfit. Click here: http://helpdress.me/votes.html?id=" +
 						data.id + "&friend=" + who
 				},
 				success: function(result) {
